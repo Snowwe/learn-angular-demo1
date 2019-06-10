@@ -16,15 +16,15 @@ import { IAppState } from '../../store/app.state';
 export class LaborService {
     constructor(private httpClient: HttpClient, private config: API, private store$: Store<IAppState>) {}
 
-    getLaborById$(laborId: string | number): Observable<ILabor> {
+    getLaborById$(clientId: string): Observable<ILabor> {
         const sourceLabor$: Observable<ILabor> = this.store$.select(selectGetLabor);
 
-        sourceLabor$.pipe(onceRunOrCatch(this.fetchAndSave$(laborId))).subscribe();
+        sourceLabor$.pipe(onceRunOrCatch(this.fetchAndSave$(clientId))).subscribe();
 
         return sourceLabor$;
     }
 
-    fetchAndSave$(laborId: string | number): Observable<ILabor> {
+    fetchAndSave$(laborId: string): Observable<ILabor> {
         return this.store$.pipe(
             select(selectLoadingStatus),
             take(1),
@@ -41,12 +41,12 @@ export class LaborService {
             }),
         );
     }
-    addLabor$(form: ILabor): Observable<void> {
-        return this.httpClient.post(this.config.LABOR_URL, form).pipe(
+    addLabor$(form: ILabor): void {
+         this.httpClient.post(this.config.LABOR_URL, form).pipe(
             map((labor: ILabor) => {
                 this.store$.dispatch(new AddLabor(labor));
             }),
-        );
+        ).subscribe();
     }
 
     updateLabor$(form: ILabor, id: string): Observable<void> {
