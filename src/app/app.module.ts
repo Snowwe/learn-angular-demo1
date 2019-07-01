@@ -32,6 +32,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/app.state';
 import { environment } from 'src/environments/environment';
 import { MatOptionModule } from '@angular/material';
+import { LogInComponent } from './components/smart/log-in/log-in.component';
 
 @NgModule({
     declarations: [
@@ -45,6 +46,7 @@ import { MatOptionModule } from '@angular/material';
         ClientComponent,
         ClientLaborActivityComponent,
         LaborActivityFormComponent,
+        LogInComponent,
     ],
     imports: [
         MatToolbarModule,
