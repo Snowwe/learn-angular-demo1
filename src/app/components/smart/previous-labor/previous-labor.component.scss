@@ -6,16 +6,20 @@
 }
 
 .full-width {
-    width: 100%;
+    width: 80%;
 }
 
 td {
-    padding-right: 8px;
+    // padding-right: 8px;
+    width: 100%;
 }
 tr {
     width: 100%;
 }
-table{
-  margin: 25px 0;
-  border-bottom: 2px dashed #487480;
+table {
+    width: 100%;
+    background: #ffe3b0;
+    padding: 5px;
+    margin: 40px 0;
+    border-bottom: 2px dashed #5398ac;
 }

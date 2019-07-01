@@ -16,6 +16,6 @@ export interface IPreviousLabor {
     id?: string;
     workPhone: string;
     position: string;
-    phoneType?: string[];
+    phoneType?: string;
     startDate: string;
 }

@@ -17,7 +17,7 @@ export class PreviousLaborComponent implements OnInit {
     labor$: Observable<IPreviousLabor[]>;
     form: FormGroup = new FormGroup({});
     activeCall = false;
-    phoneType = ['сотовый', 'рабочий', 'домашний', 'главный'];
+    phoneTypes = ['type 1', 'type 2', 'type 3', 'type 4'];
     constructor(
         private store$: Store<IAppState>,
         private formBuilder: FormBuilder,
@@ -33,22 +33,23 @@ export class PreviousLaborComponent implements OnInit {
             filter((labors: ILabor[]) => !!labors),
             switchMap(() =>
                 this.previousLaborService.getLaborList$().pipe(
-                  tap(l => console.log(l)),
                     filter((labors: ILabor[]) => !!labors),
                     map((labors: ILabor[]) =>
                         labors.map(
                             (labor: ILabor): IPreviousLabor => {
+                                if (!this.phoneTypes.filter(type => type === labor.type).length ) {
+                                    this.phoneTypes = [...this.phoneTypes, labor.type];
+                                }
                                 return {
                                     id: labor.id,
                                     workPhone: labor.workPhone,
                                     position: labor.position,
-                                    phoneType: this.phoneType,
+                                    phoneType: labor.type,
                                     startDate: new Date(labor.startDate).toLocaleString(),
                                 };
                             },
                         ),
                     ),
-                    tap(l => console.log(l)),
                 ),
             ),
         );
