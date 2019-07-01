@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { ILabor, IPreviousLabor } from '../../../interfaces/labor.interface';
 import { Observable } from 'rxjs';
 import { IAppState } from '../../../store/app.state';
 import { Store } from '@ngrx/store';
-import { filter, map, switchMap, tap } from 'rxjs/operators';
+import { filter, map, switchMap } from 'rxjs/operators';
 import { PreviousLaborService } from '../../../services/previousLabor/previous-labor.service';
 import { selectGetLaborList } from '../../../store/client-labor/client-labor.selector';
 
@@ -15,9 +15,11 @@ import { selectGetLaborList } from '../../../store/client-labor/client-labor.sel
 })
 export class PreviousLaborComponent implements OnInit {
     labor$: Observable<IPreviousLabor[]>;
-    form: FormGroup = new FormGroup({});
     activeCall = false;
+    currentCallButton = document.getElementsByClassName('doCall');
+    currentCallID: number;
     phoneTypes = ['type 1', 'type 2', 'type 3', 'type 4'];
+
     constructor(
         private store$: Store<IAppState>,
         private formBuilder: FormBuilder,
@@ -37,7 +39,7 @@ export class PreviousLaborComponent implements OnInit {
                     map((labors: ILabor[]) =>
                         labors.map(
                             (labor: ILabor): IPreviousLabor => {
-                                if (!this.phoneTypes.filter(type => type === labor.type).length ) {
+                                if (!this.phoneTypes.filter(type => type === labor.type).length) {
                                     this.phoneTypes = [...this.phoneTypes, labor.type];
                                 }
                                 return {
@@ -55,12 +57,15 @@ export class PreviousLaborComponent implements OnInit {
         );
     }
 
-    callToClient(): void {
-        this.activeCall = !this.activeCall;
-        console.log(`Звонок на номер ${this.form.value.workPhone}`);
-    }
-
-    callEnd(): void {
-        this.activeCall = !this.activeCall;
+    callToClient(currentPhoneNumber: string, selectedIndex: number): void {
+        if (!this.activeCall) {
+            this.activeCall = !this.activeCall;
+            console.log(`Звонок на номер ${currentPhoneNumber}`);
+            this.currentCallButton[selectedIndex].innerHTML = 'call_end';
+            this.currentCallID = selectedIndex;
+        } else {
+            this.activeCall = !confirm('Завершить текущий звонок?');
+            this.currentCallButton.item(this.currentCallID).innerHTML = 'call';
+        }
     }
 }

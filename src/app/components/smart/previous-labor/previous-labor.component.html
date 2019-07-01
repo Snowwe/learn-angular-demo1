@@ -1,22 +1,19 @@
 <h3>Список работ</h3>
 <form class="form" *ngIf="labor$ | async as labor">
-  <table class="full-width" cellspacing="0" *ngFor="let currentLabor of labor">
+  <table class="full-width" cellspacing="0" *ngFor="let currentLabor of labor; let i = index">
     <tr>
       <td>
         <mat-form-field class="full-width">
           <input matInput ngClass="{phoneInput:true}" [readonly]="activeCall" placeholder="Телефон"
-            [value]="currentLabor.workPhone" />
-          <button mat-button matSuffix (click)="callToClient()" *ngIf="!activeCall">
-            <i class="material-icons"> call </i>
-          </button>
-          <button mat-button matSuffix (click)="callEnd()" *ngIf="activeCall">
-            <i class="material-icons"> call_end </i>
+                 [value]="currentLabor.workPhone"/>
+          <button mat-button matSuffix (click)="callToClient(currentLabor.workPhone, i)">
+            <i class="material-icons doCall"> call </i>
           </button>
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="full-width">
-          <input matInput placeholder="ФИО контакта" [value]="currentLabor.position" />
+          <input matInput placeholder="ФИО контакта" [value]="currentLabor.position"/>
         </mat-form-field>
       </td>
     </tr>
@@ -32,7 +29,7 @@
 
       <td>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Дата начала" [value]="currentLabor.startDate" />
+          <input matInput placeholder="Дата начала" [value]="currentLabor.startDate"/>
         </mat-form-field>
       </td>
     </tr>
