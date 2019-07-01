@@ -7,16 +7,24 @@ export enum LaborActionsType {
     ADD_LABOR = '[LABOR] ADD_LABOR',
     UPDATE_LABOR = '[LABOR] UPDATE_LABOR',
     LABOR_IS_LOADING = '[LABOR] LABOR_IS_LOADING',
+    GET_LABORS = '[LABOR] GET_LABORS',
+}
+
+export class GetLabors implements Action {
+    readonly type = LaborActionsType.GET_LABORS;
+    constructor(public payload: ILabor[]) {}
 }
 
 export class UpsertLabor implements Action {
     readonly type = LaborActionsType.UPSERT;
     constructor(public payload: ILabor) {}
 }
+
 export class AddLabor implements Action {
     readonly type = LaborActionsType.ADD_LABOR;
     constructor(public payload: ILabor) {}
 }
+
 export class UpdateLabor implements Action {
     readonly type = LaborActionsType.UPDATE_LABOR;
     constructor(public payload: ILabor) {}
@@ -32,4 +40,4 @@ export class SelectedLaborSet implements Action {
     constructor(public payload: string) {}
 }
 
-export type LaborActions = UpsertLabor | SelectedLaborSet | IsLoadingLabor | AddLabor | UpdateLabor;
+export type LaborActions = UpsertLabor | SelectedLaborSet | IsLoadingLabor | AddLabor | UpdateLabor | GetLabors;

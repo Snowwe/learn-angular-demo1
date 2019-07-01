@@ -32,6 +32,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/app.state';
 import { environment } from 'src/environments/environment';
 import { MatOptionModule } from '@angular/material';
+import { PreviousLaborComponent } from './components/smart/previous-labor/previous-labor.component';
 
 @NgModule({
     declarations: [
@@ -45,6 +46,7 @@ import { MatOptionModule } from '@angular/material';
         ClientComponent,
         ClientLaborActivityComponent,
         LaborActivityFormComponent,
+        PreviousLaborComponent,
     ],
     imports: [
         MatToolbarModule,

@@ -12,3 +12,10 @@ export interface ILabor {
     site: string;
 }
 
+export interface IPreviousLabor {
+    id?: string;
+    workPhone: string;
+    position: string;
+    phoneType?: string[];
+    startDate: string;
+}
