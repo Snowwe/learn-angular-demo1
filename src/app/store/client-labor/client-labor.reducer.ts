@@ -7,6 +7,7 @@ import {
     SelectedLaborSet,
     IsLoadingLabor,
     AddLabor,
+  GetLabors,
 } from './client-labor.action';
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
 
@@ -30,23 +31,35 @@ const reducers: DictionaryInterface<ActionReducer<ILaborState, LaborActions>> = 
     [LaborActionsType.LABOR_IS_LOADING]: setLaborIsLoading,
     [LaborActionsType.ADD_LABOR]: addLabor,
     [LaborActionsType.UPDATE_LABOR]: updateLabor,
+    [LaborActionsType.GET_LABORS]: getLabors,
 };
+
+function getLabors(state: ILaborState, { payload }: GetLabors): ILaborState {
+  return laborAdapter.upsertMany(payload, state);
+}
+
 function upsertLabor(state: ILaborState, { payload }: UpsertLabor): ILaborState {
     return laborAdapter.upsertOne(payload, state);
 }
+
 function setLaborIsLoading(state: ILaborState, { payload }: IsLoadingLabor): ILaborState {
     return { ...state, isLoading: payload };
 }
+
 function addLabor(state: ILaborState, { payload }: AddLabor): ILaborState {
     return laborAdapter.upsertOne(payload, state);
 }
+
 function updateLabor(state: ILaborState, { payload }: AddLabor): ILaborState {
     return laborAdapter.upsertOne(payload, state);
 }
+
 function selectedLaborSet(state: ILaborState, { payload }: SelectedLaborSet): ILaborState {
     return { ...state, selectedId: payload };
 }
+
 export function reducer(state: ILaborState = laborInitialState, action: LaborActions): ILaborState {
     return action.type in reducers ? reducers[action.type](state, action) : state;
 }
-export const { selectEntities } = laborAdapter.getSelectors();
+
+export const { selectEntities, selectAll } = laborAdapter.getSelectors();

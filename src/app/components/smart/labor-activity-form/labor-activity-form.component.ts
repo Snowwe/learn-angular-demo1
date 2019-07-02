@@ -64,7 +64,7 @@ export class LaborActivityFormComponent implements OnInit, DoCheck {
                     map((labor: ILabor) => {
                         return {
                             ...labor,
-                            startDate: new Date(labor.startDate).toString(),
+                            startDate: new Date(labor.startDate).toLocaleString(),
                         };
                     }),
                     tap((labor: ILabor) => {
