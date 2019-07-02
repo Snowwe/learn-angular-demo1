@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent implements OnInit {
+    isOpen = false;
+
     constructor() {}
 
     ngOnInit() {}
+
+    viewAuthorization(): void {
+        this.isOpen = !this.isOpen;
+    }
 }
