@@ -6,12 +6,13 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./toolbar.component.scss'],
 })
 export class ToolbarComponent implements OnInit {
-    clicked = false;
+    isOpen = false;
+
     constructor() {}
 
     ngOnInit() {}
-    onButtonClicke(e) {
-        console.log('click')
-        e ? (this.clicked = !this.clicked) : console.log('false');
+
+    viewAuthorization(): void {
+        this.isOpen = !this.isOpen;
     }
 }

@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToolbarComponent } from './components/smart/toolbar/toolbar.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,7 +33,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/app.state';
 import { environment } from 'src/environments/environment';
 import { MatOptionModule } from '@angular/material';
-import { LogInComponent } from './components/smart/log-in/log-in.component';
+import { PreviousLaborComponent } from './components/smart/previous-labor/previous-labor.component';
+import { AuthorizationComponent } from './components/smart/authorization/authorization.component';
 
 @NgModule({
     declarations: [
@@ -46,7 +48,8 @@ import { LogInComponent } from './components/smart/log-in/log-in.component';
         ClientComponent,
         ClientLaborActivityComponent,
         LaborActivityFormComponent,
-        LogInComponent,
+        PreviousLaborComponent,
+        AuthorizationComponent,
     ],
     imports: [
         MatToolbarModule,
@@ -58,6 +61,7 @@ import { LogInComponent } from './components/smart/log-in/log-in.component';
         MatChipsModule,
         MatButtonModule,
         MatSidenavModule,
+        MatIconModule,
         MatMenuModule,
         MatTabsModule,
         MatGridListModule,

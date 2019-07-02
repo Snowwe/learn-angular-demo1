@@ -1,0 +1,37 @@
+<h3>Список работ</h3>
+<form class="form" *ngIf="labor$ | async as labor">
+  <table class="full-width" cellspacing="0" *ngFor="let currentLabor of labor; let i = index">
+    <tr>
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput ngClass="{phoneInput:true}" [readonly]="activeCall" placeholder="Телефон"
+                 [value]="currentLabor.workPhone"/>
+          <button mat-button matSuffix (click)="callToClient(currentLabor.workPhone, i)">
+            <i class="material-icons doCall"> call </i>
+          </button>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="ФИО контакта" [value]="currentLabor.position"/>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-form-field class="full-width">
+          <mat-label>Тип телефона</mat-label>
+          <mat-select [value]="currentLabor.phoneType">
+            <mat-option value="{{type}}" *ngFor="let type of phoneTypes "> {{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Дата начала" [value]="currentLabor.startDate"/>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+</form>

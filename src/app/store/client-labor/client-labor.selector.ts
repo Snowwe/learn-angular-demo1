@@ -26,3 +26,7 @@ export const selectGetLabor = createSelector(
     selectLaborEntities,
     (laborId: string, entities: Dictionary<ILabor>) => entities[laborId],
 );
+export const selectGetLaborList = createSelector(
+    getLaborState,
+    fromLabor.selectAll,
+);
