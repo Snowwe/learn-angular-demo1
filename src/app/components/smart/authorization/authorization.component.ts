@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthorizationService } from 'src/app/services/authorization/authorization.service';
 
 @Component({
     selector: 'app-authorization',
@@ -10,7 +11,7 @@ export class AuthorizationComponent implements OnInit {
     authForm: FormGroup = new FormGroup({});
     hide = true;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(private formBuilder: FormBuilder, private authService: AuthorizationService) {}
 
     ngOnInit() {
         this.initForm();
@@ -24,7 +25,9 @@ export class AuthorizationComponent implements OnInit {
     }
 
     login() {
-        console.log('login');
+        if (this.authService.isVerify(this.authForm.value.email)) {
+            localStorage.setItem('uathData', `userName: ${this.authForm.value.email}`);
+        }
     }
 
     getErrorMessage() {

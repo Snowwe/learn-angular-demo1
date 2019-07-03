@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorizationService } from 'src/app/services/authorization/authorization.service';
 
 @Component({
     selector: 'app-toolbar',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ToolbarComponent implements OnInit {
     isOpen = false;
 
-    constructor() {}
+    constructor(private authService: AuthorizationService) {}
 
     ngOnInit() {}
 
@@ -17,10 +18,9 @@ export class ToolbarComponent implements OnInit {
     }
     close(ev) {
         if (
-            ev.target.textContent === 'LOGIN' &&
-            ev.target.className === 'mat-button-wrapper'
+            (ev.target.textContent === 'LOGIN' || ev.target.textContent === 'Cancel') &&
+            (ev.target.className === 'mat-button-wrapper' || ev.target.localName === 'button')
         ) {
-            console.log(ev);
             this.isOpen = false;
         }
     }
