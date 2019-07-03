@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthorizationService } from 'src/app/services/authorization/authorization.service';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
     selector: 'app-authorization',
     templateUrl: './authorization.component.html',
     styleUrls: ['./authorization.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthorizationComponent implements OnInit {
     authForm: FormGroup = new FormGroup({});
@@ -26,7 +28,7 @@ export class AuthorizationComponent implements OnInit {
 
     login() {
         if (this.authService.isVerify(this.authForm.value.email)) {
-            localStorage.setItem('uathData', `userName: ${this.authForm.value.email}`);
+            localStorage.setItem('authData', `userName: ${this.authForm.value.email}`);
         }
     }
 
