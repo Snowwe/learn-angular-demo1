@@ -38,4 +38,14 @@ div button:hover {
 .mat-card-image {
     background-size: cover;
     border-radius: 5%;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+.card {
+    position: fixed;
+    z-index: 4;
+    right: 50px;
+    top: 50px;
 }
