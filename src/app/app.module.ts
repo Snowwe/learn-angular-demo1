@@ -35,6 +35,7 @@ import { environment } from 'src/environments/environment';
 import { MatOptionModule } from '@angular/material';
 import { PreviousLaborComponent } from './components/smart/previous-labor/previous-labor.component';
 import { AuthorizationComponent } from './components/smart/authorization/authorization.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
 
 @NgModule({
     declarations: [
@@ -50,6 +51,7 @@ import { AuthorizationComponent } from './components/smart/authorization/authori
         LaborActivityFormComponent,
         PreviousLaborComponent,
         AuthorizationComponent,
+        TasksComponent,
     ],
     imports: [
         MatToolbarModule,

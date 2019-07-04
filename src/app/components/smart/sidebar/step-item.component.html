@@ -1,7 +1,9 @@
 <mat-tab-group>
-    <mat-tab label="Действия">
-        <div *ngFor="let step of steps$ | async">
-            <span>{{ step?.name }}</span>
-        </div>
-    </mat-tab>
+  <mat-tab label="Действия">
+    <div *ngFor="let step of steps$ | async">
+      <span>{{ step?.name }}</span>
+
+    </div>
+    <div> <span (click)="goToTask()">tasks</span></div>
+  </mat-tab>
 </mat-tab-group>
