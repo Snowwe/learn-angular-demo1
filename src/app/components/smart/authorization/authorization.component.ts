@@ -24,13 +24,13 @@ export class AuthorizationComponent implements OnInit {
         });
     }
 
-    login() {
+    login(): void {
         if (this.authService.isVerify(this.authForm.value.email)) {
-            localStorage.setItem('uathData', `userName: ${this.authForm.value.email}`);
+            localStorage.setItem('authData', `userName: ${this.authForm.value.email}`);
         }
     }
 
-    getErrorMessage() {
+    getErrorMessage(): string {
         return this.authForm.get('email').hasError('required')
             ? 'You must enter a value'
             : this.authForm.get('email').hasError('email')
