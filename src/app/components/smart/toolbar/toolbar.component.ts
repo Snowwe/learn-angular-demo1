@@ -16,12 +16,19 @@ export class ToolbarComponent implements OnInit {
     viewAuthorization(): void {
         this.isOpen = !this.isOpen;
     }
-    close(ev) {
+
+    closeAuthForm(event): void {
         if (
-            (ev.target.textContent === 'LOGIN' || ev.target.textContent === 'Cancel') &&
-            (ev.target.className === 'mat-button-wrapper' || ev.target.localName === 'button')
+            (event.target.textContent === 'LOGIN' ||
+                event.target.textContent === 'LOG OUT' ||
+                event.target.textContent === 'Cancel') &&
+            (event.target.className === 'mat-button-wrapper' || event.target.localName === 'button')
         ) {
             this.isOpen = false;
         }
+    }
+
+    ifAuth(): boolean {
+        return !!localStorage.getItem('authData');
     }
 }

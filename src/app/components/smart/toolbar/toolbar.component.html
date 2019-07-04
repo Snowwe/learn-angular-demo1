@@ -26,10 +26,10 @@
         </div>
         <div class="fourToolbar">
             <button mat-mini-fab (click)="viewAuthorization()">
-                <i class="material-icons"> account_circle </i>
+                <i class="material-icons log-out" [ngClass]="{ 'log-in': ifAuth() }"> account_circle </i>
             </button>
-            <mat-card class="card" *ngIf="isOpen">
-                <app-authorization (click)="close($event)"></app-authorization>
+            <mat-card class="authForm" *ngIf="isOpen">
+                <app-authorization (click)="closeAuthForm($event)"></app-authorization>
             </mat-card>
         </div>
     </mat-toolbar-row>

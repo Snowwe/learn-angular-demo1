@@ -1,7 +1,7 @@
-<mat-toolbar>
+<mat-toolbar >
   <span>LOGIN</span>
 </mat-toolbar>
-<mat-card class="my-card">
+<mat-card class="my-card" *ngIf="!isLogin">
   <mat-card-content>
     <form class="my-form" [formGroup]="authForm">
       <mat-form-field class="full-width">
@@ -21,7 +21,14 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button color="primary" (click)="login()">LOGIN</button>
+    <button mat-stroked-button color="primary" (click)="logIn()">LOGIN</button>
+    <button mat-stroked-button color="basic">Cancel</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card class="my-card" *ngIf="isLogin">
+  <mat-card-actions>
+    <button mat-stroked-button color="primary" (click)="logOut()">LOG OUT</button>
     <button mat-stroked-button color="basic">Cancel</button>
   </mat-card-actions>
 </mat-card>
