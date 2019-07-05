@@ -1,7 +1,7 @@
 <mat-toolbar>
     <mat-toolbar-row class="toolbar">
         <div class="firstToolbar">
-            <button mat-raised-button [matMenuTriggerFor]="menu">
+            <button mat-raised-button [matMenuTriggerFor]="menu" class="e2e-menu-btn">
                 <i class="material-icons"> menu </i>
             </button>
             <mat-menu #menu="matMenu">
@@ -11,21 +11,21 @@
         </div>
         <div class="secondToolbar"></div>
         <div class="thirdToolbar">
-            <button mat-raised-button color="">
+            <button mat-raised-button class="e2e-phone-btn">
                 <i class="material-icons"> phone_forwarded </i>
             </button>
-            <button mat-raised-button color="">
+            <button mat-raised-button class="e2e-alarm-btn">
                 <i class="material-icons"> alarm </i>
             </button>
-            <button mat-raised-button color="">
+            <button mat-raised-button class="e2e-mic-btn">
                 <i class="material-icons"> mic_none </i>
             </button>
-            <button mat-raised-button class="warn">
+            <button mat-raised-button class="warn e2e-call-btn">
                 <i class="material-icons"> call_end </i>
             </button>
         </div>
         <div class="fourToolbar">
-            <button mat-mini-fab (click)="viewAuthorization()">
+            <button mat-mini-fab (click)="viewAuthorization()" class="e2e-account-btn">
                 <i class="material-icons"> account_circle </i>
             </button>
             <mat-card class="card" *ngIf="isOpen">
