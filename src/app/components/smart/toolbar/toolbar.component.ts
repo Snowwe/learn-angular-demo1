@@ -13,7 +13,6 @@ export class ToolbarComponent implements OnInit {
 
     ngOnInit() {
       this.clientName = localStorage.getItem('authData').split(' ')[1];
-      console.log(this.clientName);
     }
 
     viewAuthorization(): void {
