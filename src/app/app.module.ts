@@ -36,6 +36,7 @@ import { MatOptionModule } from '@angular/material';
 import { PreviousLaborComponent } from './components/smart/previous-labor/previous-labor.component';
 import { AuthorizationComponent } from './components/smart/authorization/authorization.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
+import { CanActivateTasksGuard } from './can-activate-tasks.guard';
 
 @NgModule({
     declarations: [
@@ -77,7 +78,7 @@ import { TasksComponent } from './pages/tasks/tasks.component';
         }),
         !environment.production ? StoreDevtoolsModule.instrument() : [],
     ],
-    providers: [CommentService, API, StepService],
+    providers: [CommentService, API, StepService, CanActivateTasksGuard],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

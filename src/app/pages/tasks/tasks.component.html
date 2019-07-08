@@ -1,24 +1,27 @@
-<mat-card class="card" *ngFor="let dog of pictureArray, let i=index">
-  <mat-card-header>
-    <div mat-card-avatar></div>
-    <mat-card-title>{{dog.name}}</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <div class="image">
-    <img mat-card-image src="{{dog.picture}}">
-  </div>
-  <mat-card-content>
-    <p *ngIf="!!dog.user">
-      Hi {{(dog.user| async)?.firstName}}! I know, you live in {{(dog.user| async)?.city}}. You task: make cookies))
-    </p>
-    <p *ngIf="!dog.user">
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog
-      that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions class="buttons">
-    <button mat-raised-button color="primary" (click)="getTask(i)">Get task</button>
-    <button mat-raised-button (click)="delete(i)">I hate this task</button>
-    <button mat-raised-button (click)="goToMainPage()" *ngIf="!!dog.user">Go to main page</button>
-  </mat-card-actions>
+<mat-card class="card" *ngFor="let dog of pictureArray; let i = index">
+    <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>{{ dog.name }}</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <div class="image">
+        <img mat-card-image src="{{ dog.picture }}" />
+    </div>
+    <mat-card-content>
+        <p *ngIf="!!dog.user">
+            Hi {{ (dog.user | async)?.firstName }}! I know, you live in {{ (dog.user | async)?.city }}. You task: make
+            cookies))
+        </p>
+        <p *ngIf="!dog.user">
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small,
+            agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+        </p>
+    </mat-card-content>
+    <mat-card-actions class="buttons">
+        <button mat-raised-button color="primary" (click)="getTask(i)">Get task</button>
+        <button mat-raised-button (click)="delete(i)">I hate this task</button>
+        <button mat-raised-button routerLink="/home" routerLinkActive="active-link" *ngIf="!!dog.user">
+            Go to main page
+        </button>
+    </mat-card-actions>
 </mat-card>
