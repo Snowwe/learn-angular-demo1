@@ -9,14 +9,13 @@ export class ToolbarComponent implements OnInit {
     isOpen = false;
     clientName: string;
 
-  constructor() {}
+    constructor() {}
 
-    ngOnInit() {
-      this.clientName = localStorage.getItem('authData').split(' ')[1];
+    ngOnInit() {      
     }
 
     viewAuthorization(): void {
-        this.isOpen = !this.isOpen;
+        this.isOpen = !this.isOpen;        
     }
 
     closeAuthForm(event): void {
@@ -31,6 +30,10 @@ export class ToolbarComponent implements OnInit {
     }
 
     isAuth(): boolean {
+        if(!!localStorage.getItem('authData')){
+            this.clientName = localStorage.getItem('authData').split(' ')[1];  
+        }
         return !!localStorage.getItem('authData');
+        
     }
 }

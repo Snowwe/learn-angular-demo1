@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class AuthorizationService {
     emails = ['2@2', 's@s', 'hello@myFriend', 'run@run'];
     isPermissibleEmail: boolean;
-
     constructor() {}
 
     isVerify(incomingEmail: string): boolean {

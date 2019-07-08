@@ -29,9 +29,11 @@ export class AuthorizationComponent implements OnInit {
     }
 
     logIn(): void {
-        // if (this.authService.isVerify(this.authForm.value.email)) {
+        if (this.authService.isVerify(this.authForm.value.email)) {
             localStorage.setItem('authData', `userName: ${this.authForm.value.email}`);
-        // }
+        } else {
+            event.stopPropagation();
+        }
     }
 
     logOut(): void {
