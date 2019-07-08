@@ -34,14 +34,15 @@ export class AuthorizationComponent implements OnInit {
         }
     }
 
+    logOut(): void {
+        localStorage.removeItem('authData');
+    }
+
     getErrorMessage(): string {
         return this.authForm.get('email').hasError('required')
             ? 'You must enter a value'
             : this.authForm.get('email').hasError('email')
             ? 'Not a valid email'
             : '';
-    }
-    logOut(): void {
-        localStorage.removeItem('authData');
     }
 }

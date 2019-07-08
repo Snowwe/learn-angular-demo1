@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorizationService } from 'src/app/services/authorization/authorization.service';
 
 @Component({
     selector: 'app-toolbar',
@@ -8,10 +7,14 @@ import { AuthorizationService } from 'src/app/services/authorization/authorizati
 })
 export class ToolbarComponent implements OnInit {
     isOpen = false;
+    clientName: string;
 
-    constructor(private authService: AuthorizationService) {}
+  constructor() {}
 
-    ngOnInit() {}
+    ngOnInit() {
+      this.clientName = localStorage.getItem('authData').split(' ')[1];
+      console.log(this.clientName);
+    }
 
     viewAuthorization(): void {
         this.isOpen = !this.isOpen;
@@ -28,7 +31,7 @@ export class ToolbarComponent implements OnInit {
         }
     }
 
-    ifAuth(): boolean {
+    isAuth(): boolean {
         return !!localStorage.getItem('authData');
     }
 }
