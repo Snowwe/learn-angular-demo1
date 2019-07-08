@@ -12,11 +12,13 @@ import { ChangeDetectionStrategy } from '@angular/core';
 export class AuthorizationComponent implements OnInit {
     authForm: FormGroup = new FormGroup({});
     hide = true;
+    isLogin: boolean;
 
     constructor(private formBuilder: FormBuilder, private authService: AuthorizationService) {}
 
     ngOnInit() {
         this.initForm();
+        this.isLogin = !!localStorage.getItem('authData');
     }
 
     private initForm(): void {
@@ -26,10 +28,16 @@ export class AuthorizationComponent implements OnInit {
         });
     }
 
-    login(): void {
+    logIn(): void {
         if (this.authService.isVerify(this.authForm.value.email)) {
             localStorage.setItem('authData', `userName: ${this.authForm.value.email}`);
+        } else {
+            event.stopPropagation();
         }
+    }
+
+    logOut(): void {
+        localStorage.removeItem('authData');
     }
 
     getErrorMessage(): string {

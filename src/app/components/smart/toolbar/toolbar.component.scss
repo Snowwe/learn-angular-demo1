@@ -35,6 +35,12 @@ div button:hover {
     flex-grow: 1;
 }
 
+.clientName {
+    padding-top: 5px;
+    flex-grow: 1;
+    color: white;
+}
+
 .mat-card-image {
     background-size: cover;
     border-radius: 5%;
@@ -43,9 +49,17 @@ div button:hover {
     display: block;
 }
 
-.card {
+.authForm {
     position: fixed;
     z-index: 4;
     right: 50px;
     top: 50px;
+}
+
+.log-out {
+    color: #f44336;
+}
+
+.log-in {
+    color: #52803b;
 }

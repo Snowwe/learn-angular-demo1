@@ -31,7 +31,7 @@ export class TasksComponent implements OnInit {
         },
     ];
 
-    constructor(private taskService: TaskService, private router: Router) {}
+    constructor(private taskService: TaskService) {}
 
     ngOnInit() {}
 
@@ -42,9 +42,5 @@ export class TasksComponent implements OnInit {
 
     delete(index: number): void {
         this.pictureArray.splice(index, 1);
-    }
-
-    goToMainPage(): void {
-        this.router.navigate(['/home']);
     }
 }
