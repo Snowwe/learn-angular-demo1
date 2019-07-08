@@ -37,6 +37,7 @@ import { PreviousLaborComponent } from './components/smart/previous-labor/previo
 import { AuthorizationComponent } from './components/smart/authorization/authorization.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { CanActivateTasksGuard } from './can-activate-tasks.guard';
+import { CanDeactivateTasksGuard } from './can-deactivate-tasks.guard';
 
 @NgModule({
     declarations: [
@@ -78,7 +79,7 @@ import { CanActivateTasksGuard } from './can-activate-tasks.guard';
         }),
         !environment.production ? StoreDevtoolsModule.instrument() : [],
     ],
-    providers: [CommentService, API, StepService, CanActivateTasksGuard],
+    providers: [CommentService, API, StepService, CanActivateTasksGuard, CanDeactivateTasksGuard],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
