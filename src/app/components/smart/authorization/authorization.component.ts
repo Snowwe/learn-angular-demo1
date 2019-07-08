@@ -38,6 +38,7 @@ export class AuthorizationComponent implements OnInit {
 
     logOut(): void {
         localStorage.removeItem('authData');
+        this.authService.isPermissibleEmail = false;
     }
 
     getErrorMessage(): string {
