@@ -7,7 +7,6 @@ import { Store } from '@ngrx/store';
 import { IAppState } from 'src/app/store/app.state';
 import { filter, switchMap, map } from 'rxjs/operators';
 import { selectGetClient } from '../../../store/client/client.selector';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-sidebar',
@@ -18,7 +17,7 @@ import { Router } from '@angular/router';
 export class StepItemComponent implements OnInit {
     steps$: Observable<ICommentStep[]>;
 
-    constructor(private stepService: StepService, private store$: Store<IAppState>, private router: Router) {}
+    constructor(private stepService: StepService, private store$: Store<IAppState>) {}
 
     ngOnInit() {
         this.steps$ = this.store$.select(selectGetClient).pipe(
@@ -30,10 +29,5 @@ export class StepItemComponent implements OnInit {
                 ),
             ),
         );
-    }
-    goToTask() {
-        if (!!localStorage.getItem('authData')) {
-            this.router.navigate(['/tasks']);
-        }
     }
 }

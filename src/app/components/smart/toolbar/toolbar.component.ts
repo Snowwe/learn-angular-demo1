@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthorizationService } from 'src/app/services/authorization/authorization.service';
 
 @Component({
     selector: 'app-toolbar',
@@ -8,20 +7,33 @@ import { AuthorizationService } from 'src/app/services/authorization/authorizati
 })
 export class ToolbarComponent implements OnInit {
     isOpen = false;
+    clientName: string;
 
-    constructor(private authService: AuthorizationService) {}
+    constructor() {}
 
-    ngOnInit() {}
+    ngOnInit() {      
+    }
 
     viewAuthorization(): void {
-        this.isOpen = !this.isOpen;
+        this.isOpen = !this.isOpen;        
     }
-    close(ev) {
+
+    closeAuthForm(event): void {
         if (
-            (ev.target.textContent === 'LOGIN' || ev.target.textContent === 'Cancel') &&
-            (ev.target.className === 'mat-button-wrapper' || ev.target.localName === 'button')
+            (event.target.textContent === 'LOGIN' ||
+                event.target.textContent === 'LOG OUT' ||
+                event.target.textContent === 'Cancel') &&
+            (event.target.className === 'mat-button-wrapper' || event.target.localName === 'button')
         ) {
             this.isOpen = false;
         }
+    }
+
+    isAuth(): boolean {
+        if(!!localStorage.getItem('authData')){
+            this.clientName = localStorage.getItem('authData').split(' ')[1];  
+        }
+        return !!localStorage.getItem('authData');
+        
     }
 }
