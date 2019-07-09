@@ -38,7 +38,7 @@ import { AuthorizationComponent } from './components/smart/authorization/authori
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { CanActivateTasksGuard } from './can-activate-tasks.guard';
 import { CanDeactivateTasksGuard } from './can-deactivate-tasks.guard';
-import { TasksChildComponent } from './components/smart/tasks-child/tasks-child.component';
+import { AuthGaurdCanLoadService } from './auth-gaurd-can-load.service';
 
 @NgModule({
     declarations: [
@@ -55,7 +55,6 @@ import { TasksChildComponent } from './components/smart/tasks-child/tasks-child.
         PreviousLaborComponent,
         AuthorizationComponent,
         TasksComponent,
-        TasksChildComponent,
     ],
     imports: [
         MatToolbarModule,
@@ -81,7 +80,14 @@ import { TasksChildComponent } from './components/smart/tasks-child/tasks-child.
         }),
         !environment.production ? StoreDevtoolsModule.instrument() : [],
     ],
-    providers: [CommentService, API, StepService, CanActivateTasksGuard, CanDeactivateTasksGuard],
+    providers: [
+        CommentService,
+        API,
+        StepService,
+        CanActivateTasksGuard,
+        CanDeactivateTasksGuard,
+        AuthGaurdCanLoadService,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
