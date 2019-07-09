@@ -38,6 +38,7 @@ import { AuthorizationComponent } from './components/smart/authorization/authori
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { CanActivateTasksGuard } from './can-activate-tasks.guard';
 import { CanDeactivateTasksGuard } from './can-deactivate-tasks.guard';
+import { TasksChildComponent } from './components/smart/tasks-child/tasks-child.component';
 
 @NgModule({
     declarations: [
@@ -54,6 +55,7 @@ import { CanDeactivateTasksGuard } from './can-deactivate-tasks.guard';
         PreviousLaborComponent,
         AuthorizationComponent,
         TasksComponent,
+        TasksChildComponent,
     ],
     imports: [
         MatToolbarModule,

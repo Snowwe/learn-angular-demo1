@@ -10,6 +10,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     {
         path: 'tasks',
+        loadChildren: 'tasks/task-child',
         component: TasksComponent,
         canActivate: [CanActivateTasksGuard],
         canDeactivate: [CanDeactivateTasksGuard],
