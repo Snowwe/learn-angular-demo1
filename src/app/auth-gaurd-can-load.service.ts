@@ -8,7 +8,7 @@ export class AuthGaurdCanLoadService implements CanLoad {
     canLoad(route: Route): boolean {
         const url: string = route.path;
         console.log('Url:' + url);
-        if (url === 'taskchild') {
+        if (!localStorage.getItem('authData')) {
             alert('You are not authorised to visit this page');
             return false;
         }

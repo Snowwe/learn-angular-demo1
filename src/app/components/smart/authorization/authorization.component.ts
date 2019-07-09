@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthorizationService } from 'src/app/services/authorization/authorization.service';
 import { ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-authorization',
@@ -14,7 +15,7 @@ export class AuthorizationComponent implements OnInit {
     hide = true;
     isLogin: boolean;
 
-    constructor(private formBuilder: FormBuilder, private authService: AuthorizationService) {}
+    constructor(private formBuilder: FormBuilder, private authService: AuthorizationService, private router: Router) {}
 
     ngOnInit() {
         this.initForm();
@@ -38,6 +39,10 @@ export class AuthorizationComponent implements OnInit {
 
     logOut(): void {
         localStorage.removeItem('authData');
+        this.authService.isPermissibleEmail = false;
+        if (!this.router.navigate(['home'])) {
+            this.router.navigate(['home']);
+        }
     }
 
     getErrorMessage(): string {
