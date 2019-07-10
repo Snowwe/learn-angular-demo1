@@ -3,7 +3,8 @@ exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub', // This is targetting your local running instance of the selenium webdriver
 
   specs: [
-    './toolbar.button.feature'
+    // './toolbar.button.feature'
+    // 'cucumber-tests/features/step_definitions/toolbar.steps.ts'
   ],
 
   capabilities: {
@@ -16,7 +17,7 @@ exports.config = {
 
   cucumberOpts: {
     format:  'pretty',
-    require: './steps/*.js', // This is where we'll be writing our actual tests
+     require: './steps/*.js', // This is where we'll be writing our actual tests
   },
 
   params: {
