@@ -5,7 +5,10 @@ export class AppPage {
         return browser.get(browser.baseUrl);
     }
 
-    getTitleText() {
-        return element(by.css('app-root h1')).getText();
+    getButtonText() {
+        return element(by.css('app-toolbar button i')).getText();
+    }
+    getCount() {
+        return element.all(by.css('app-toolbar button')).count();
     }
 }

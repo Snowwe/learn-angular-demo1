@@ -15,6 +15,9 @@ Given(/^I am on the home page$/, async () => {
 
 When(/^I do nothing$/, () => {});
 
-Then(/^I should see the title$/, async () => {
-    expect(await page.getTitleText()).to.equal('learn-angular-quiz');
+Then(/^I should see the button title$/, async () => {
+    expect(await page.getButtonText()).to.equal('menu');
+});
+Then(/^I should see {int} buttons$/, async () => {
+    expect(await page.getCount()).to.equal(9);
 });
