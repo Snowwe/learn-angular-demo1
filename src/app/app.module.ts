@@ -38,7 +38,7 @@ import { AuthorizationComponent } from './components/smart/authorization/authori
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { CanActivateTasksGuard } from './can-activate-tasks.guard';
 import { CanDeactivateTasksGuard } from './can-deactivate-tasks.guard';
-import { AuthGaurdCanLoadService } from './auth-gaurd-can-load.service';
+import { AuthGuardCanLoadService } from './auth-guard-can-load.service';
 
 @NgModule({
     declarations: [
@@ -86,7 +86,7 @@ import { AuthGaurdCanLoadService } from './auth-gaurd-can-load.service';
         StepService,
         CanActivateTasksGuard,
         CanDeactivateTasksGuard,
-        AuthGaurdCanLoadService,
+        AuthGuardCanLoadService,
     ],
     bootstrap: [AppComponent],
 })

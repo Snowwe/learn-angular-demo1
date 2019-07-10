@@ -5,4 +5,4 @@ Feature: Go to the home
     Given I am on the home page
     When I do nothing
     Then I should see the button title
-    Then I should see 9 buttons
+    Then I should see 6 buttons

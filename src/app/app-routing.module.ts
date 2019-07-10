@@ -5,7 +5,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { CanActivateTasksGuard } from './can-activate-tasks.guard';
 import { CanDeactivateTasksGuard } from './can-deactivate-tasks.guard';
-import { AuthGaurdCanLoadService } from './auth-gaurd-can-load.service';
+import { AuthGuardCanLoadService } from './auth-guard-can-load.service';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -15,7 +15,7 @@ const routes: Routes = [
         canActivate: [CanActivateTasksGuard],
         canDeactivate: [CanDeactivateTasksGuard],
     },
-    { path: 'tasks', loadChildren: './pages/tasks/tasks.module#TasksModule', canLoad: [AuthGaurdCanLoadService] },
+    { path: 'tasks', loadChildren: './pages/tasks/tasks.module#TasksModule', canLoad: [AuthGuardCanLoadService] },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent },
 ];
