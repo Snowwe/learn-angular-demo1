@@ -6,3 +6,5 @@ Feature: Go to the home
     When I do nothing
     Then I should see the button title
     Then I should see 6 buttons
+    When I click menu button
+    Then I see links
