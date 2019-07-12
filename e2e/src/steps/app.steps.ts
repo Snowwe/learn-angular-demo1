@@ -30,13 +30,3 @@ Then('I should see {int} buttons', async (count: number) => {
 Then('I should see {int} buttons in menuList', async (count: number) => {
     expect(await page.getCountMenuButtons()).to.equal(count);
 });
-
-When('I click menu button', async () => {
-    expect(await page.clickButton()).to.equal('menu');
-    // какая проверка должна быть?
-});
-
-Then('I see links', async () => {
-    // console.log(await page.getLinks());
-    expect(await page.getLinks()).to.equal('');
-});
