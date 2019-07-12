@@ -6,19 +6,11 @@ export class AppPage {
     }
 
     getButtonText(btnID: string) {
-        return element(by.css('app-toolbar button#' + btnID)).getText();
-    }
-
-    getCountToolbarButtons() {
-        return element.all(by.css('app-toolbar button')).count();
-    }
-
-    getCountMenuButtons() {
-        return element.all(by.css('.mat-menu-content button')).count();
+        return element(by.css('button#' + btnID)).getText();
     }
 
     clickBtn(btnID: string) {
-        const btn = element(by.css('app-toolbar button#' + btnID));
+        const btn = element(by.css('button#' + btnID));
         return btn.click();
     }
 }

@@ -1,5 +1,4 @@
-Feature: Go to the home
-  Display the title
+Feature: Display the title
 
   Scenario: Toolbar on Home Page
     Given I am on the home page

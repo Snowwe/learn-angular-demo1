@@ -22,11 +22,3 @@ When('I click {string} button', async (btnId: string) => {
 Then('I should see the button {string} title {string}', async (btnId: string, btnValue: string) => {
     expect(await page.getButtonText(btnId)).to.equal(btnValue);
 });
-
-Then('I should see {int} buttons', async (count: number) => {
-    expect(await page.getCountToolbarButtons()).to.equal(count);
-});
-
-Then('I should see {int} buttons in menuList', async (count: number) => {
-    expect(await page.getCountMenuButtons()).to.equal(count);
-});
