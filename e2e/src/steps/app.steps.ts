@@ -15,9 +15,18 @@ Given('I am on the home page', async () => {
 
 When('I do nothing', () => {});
 
-Then('I should see the button title', async () => {
-    expect(await page.getButtonText()).to.equal('menu');
+When('I click {string} button', async (btnId: string) => {
+    await page.clickBtn(btnId);
 });
+
+Then('I should see the button {string} title {string}', async (btnId: string, btnValue: string) => {
+    expect(await page.getButtonText(btnId)).to.equal(btnValue);
+});
+
 Then('I should see {int} buttons', async (count: number) => {
-    expect(await page.getCount()).to.equal(count);
+    expect(await page.getCountToolbarButtons()).to.equal(count);
+});
+
+Then('I should see {int} buttons in menuList', async (count: number) => {
+    expect(await page.getCountMenuButtons()).to.equal(count);
 });

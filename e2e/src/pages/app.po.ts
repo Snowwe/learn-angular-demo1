@@ -5,10 +5,20 @@ export class AppPage {
         return browser.get(browser.baseUrl);
     }
 
-    getButtonText() {
-        return element(by.css('app-toolbar button i')).getText();
+    getButtonText(btnID: string) {
+        return element(by.css('app-toolbar button#' + btnID)).getText();
     }
-    getCount() {
+
+    getCountToolbarButtons() {
         return element.all(by.css('app-toolbar button')).count();
+    }
+
+    getCountMenuButtons() {
+        return element.all(by.css('.mat-menu-content button')).count();
+    }
+
+    clickBtn(btnID: string) {
+        const btn = element(by.css('app-toolbar button#' + btnID));
+        return btn.click();
     }
 }

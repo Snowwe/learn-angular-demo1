@@ -1,18 +1,18 @@
 <mat-toolbar>
     <mat-toolbar-row class="toolbar">
         <div class="firstToolbar">
-            <button mat-raised-button [matMenuTriggerFor]="menu">
+            <button mat-raised-button [matMenuTriggerFor]="menu"  id="menu-btn">
                 <i class="material-icons"> menu </i>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item routerLink="/home" routerLinkActive="active-link">Home</button>
-                <button mat-menu-item routerLink="/tasks" routerLinkActive="active-link">Tasks</button>
-                <button mat-menu-item routerLink="/tasks/taskchild" routerLinkActive="active-link">Task-Child</button>
+                <button mat-menu-item routerLink="/home" routerLinkActive="active-link" id="home-menu-btn">Home</button>
+                <button mat-menu-item routerLink="/tasks" routerLinkActive="active-link" id="tasks-menu-btn">Tasks</button>
+                <button mat-menu-item routerLink="/tasks/taskchild" routerLinkActive="active-link" id="task-child-menu-btn">Task-Child</button>
             </mat-menu>
         </div>
         <div class="secondToolbar"></div>
         <div class="thirdToolbar">
-            <button mat-raised-button color="">
+            <button mat-raised-button id="phone-btn">
                 <i class="material-icons"> phone_forwarded </i>
             </button>
             <button mat-raised-button color="">
