@@ -1,11 +1,11 @@
-import { LoginPo } from '../pages/login.po';
+import { AuthorizationPo } from '../pages/authorization.po';
 import { Before, Then } from 'cucumber';
 import { expect } from 'chai';
 
-let login: LoginPo;
+let login: AuthorizationPo;
 
 Before(() => {
-    login = new LoginPo();
+    login = new AuthorizationPo();
 });
 
 Then('I should see login form title {string}', async (title: string) => {
