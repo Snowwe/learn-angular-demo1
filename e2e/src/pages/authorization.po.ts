@@ -16,8 +16,7 @@ export class AuthorizationPo {
         return elem.sendKeys(value);
     }
 
-    async getLocalStorageInfo(key: string) {
-        // console.log(localStorage.getItem(key));
-        return await browser.localStorage.getItem(key);
+    getLocalStorageInfo(key: string) {
+        return browser.executeScript('return localStorage.getItem("' + key + '");');
     }
 }
