@@ -6,12 +6,12 @@
     <form class="my-form" [formGroup]="authForm">
       <mat-form-field class="full-width">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="enter you email" formControlName="email" />
+        <input matInput placeholder="enter you email" formControlName="email" id="email"/>
         <mat-error *ngIf="authForm.get('email').hasError">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Password</mat-label>
-        <input matInput placeholder="password" name="password" formControlName="password"
+        <input matInput placeholder="password" formControlName="password" id="password"
           [type]="hide ? 'password' : 'text'" />
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide">

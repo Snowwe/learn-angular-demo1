@@ -1,9 +1,13 @@
-import { Before, Given, Then, When } from 'cucumber';
+import { Before, BeforeAll, Given, setDefaultTimeout, Then, When } from 'cucumber';
 import { expect } from 'chai';
 
 import { AppPage } from '../pages/app.po';
 
 let page: AppPage;
+
+BeforeAll(async () => {
+    setDefaultTimeout(60 * 1000);
+});
 
 Before(() => {
     page = new AppPage();

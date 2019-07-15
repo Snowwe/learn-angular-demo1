@@ -1,9 +1,13 @@
-import { Before, Then } from 'cucumber';
+import { Before, BeforeAll, setDefaultTimeout, Then } from 'cucumber';
 import { expect } from 'chai';
 
 import { ToolbarPo } from '../pages/toolbar.po';
 
 let toolbar: ToolbarPo;
+
+BeforeAll(async () => {
+    setDefaultTimeout(60 * 1000);
+});
 
 Before(() => {
     toolbar = new ToolbarPo();
