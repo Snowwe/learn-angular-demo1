@@ -17,6 +17,6 @@ export class AuthorizationPo {
     }
 
     getLocalStorageInfo(key: string) {
-        return browser.executeScript('return localStorage.getItem("' + key + '");');
+        return browser.executeScript(`return localStorage.getItem("${key}");`);
     }
 }
