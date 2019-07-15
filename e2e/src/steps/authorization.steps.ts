@@ -1,6 +1,7 @@
 import { AuthorizationPo } from '../pages/authorization.po';
 import { Before, BeforeAll, setDefaultTimeout, Then, When } from 'cucumber';
 import { expect } from 'chai';
+import { takeScreenshot } from '../../screenshot';
 
 let login: AuthorizationPo;
 
@@ -20,8 +21,11 @@ Then('I should see in login form input {string} with {string}', async (inputID: 
     expect(await login.getInputText(inputID)).to.contains(currentValue);
 });
 
-When('I enter in input {string} {string}', async (inputID: string, value: string) => {
+When('I enter in input {string} {string}', async function(inputID: string, value: string) {
     await login.setInputValue(inputID, value);
+    // const screenShot = await browser.takeScreenshot();
+    // this.attach(screenShot, 'image/png');
+    takeScreenshot(this);
 });
 
 Then('I get info from LocalStorage by key {string} {string}', async (key: string, value: string) => {
