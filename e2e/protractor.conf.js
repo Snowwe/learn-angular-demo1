@@ -9,7 +9,7 @@ exports.config = {
     framework: 'custom',
     frameworkPath: require.resolve('protractor-cucumber-framework'),
     cucumberOpts: {
-        format: ['json:e2e/report/results.json', 'pretty'],
+        format: ['json:e2e/report/results.json'],
         require: ['report/cucumber-screenshot.js', './src/steps/**/*.steps.ts'],
         tags: true,
         profile: false,
@@ -20,13 +20,4 @@ exports.config = {
             project: require('path').join(__dirname, './tsconfig.json'),
         });
     },
-    plugins: [
-        {
-            package: 'protractor-multiple-cucumber-html-reporter-plugin',
-            options: {
-                automaticallyGenerateReport: true,
-                removeExistingJsonReportFile: true,
-            },
-        },
-    ],
 };
