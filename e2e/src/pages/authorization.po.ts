@@ -1,4 +1,4 @@
-import { by, element } from 'protractor';
+import { browser, by, element } from 'protractor';
 
 export class AuthorizationPo {
     viewLoginFormTitle() {
@@ -14,5 +14,10 @@ export class AuthorizationPo {
 
         elem.click();
         return elem.sendKeys(value);
+    }
+
+    async getLocalStorageInfo(key: string) {
+        // console.log(localStorage.getItem(key));
+        return await browser.localStorage.getItem(key);
     }
 }

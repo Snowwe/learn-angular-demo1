@@ -9,4 +9,5 @@ Feature: Display the login form
     Then I should see in login form input 'email' with '2@2'
     Then I should see in login form input 'password' with ''
     When I enter in input 'password' '1234qwerty'
-#    When I click 'login-btn' button
+    When I click 'login-auth-btn' button
+    Then I get info from LocalStorage by key 'authData' 'userName: 2@2'

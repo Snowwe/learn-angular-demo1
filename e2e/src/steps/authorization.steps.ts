@@ -22,5 +22,8 @@ Then('I should see in login form input {string} with {string}', async (inputID: 
 
 When('I enter in input {string} {string}', async (inputID: string, value: string) => {
     await login.setInputValue(inputID, value);
-    // expect(await login.setInputValue(inputID, value)).to.contains(value);
+});
+
+Then('I get info from LocalStorage by key {string} {string}', async (key: string, value: string) => {
+    expect(await login.getLocalStorageInfo(key)).to.equal(value);
 });

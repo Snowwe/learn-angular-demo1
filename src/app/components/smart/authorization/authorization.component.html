@@ -21,14 +21,14 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button color="primary" (click)="logIn()">LOGIN</button>
-    <button mat-stroked-button color="basic">Cancel</button>
+    <button mat-stroked-button color="primary" (click)="logIn()" id="login-auth-btn">LOGIN</button>
+    <button mat-stroked-button color="basic" id="cancel-login-auth-btn">Cancel</button>
   </mat-card-actions>
 </mat-card>
 
 <mat-card class="my-card" *ngIf="isLogin">
   <mat-card-actions>
-    <button mat-stroked-button color="primary" (click)="logOut()">LOG OUT</button>
-    <button mat-stroked-button color="basic">Cancel</button>
+    <button mat-stroked-button color="primary" (click)="logOut()" id="logout-auth-btn">LOG OUT</button>
+    <button mat-stroked-button color="basic" id="cancel-logout-auth-btn">Cancel</button>
   </mat-card-actions>
 </mat-card>
