@@ -23,8 +23,6 @@ Then('I should see in login form input {string} with {string}', async (inputID: 
 
 When('I enter in input {string} {string}', async function(inputID: string, value: string) {
     await login.setInputValue(inputID, value);
-    // const screenShot = await browser.takeScreenshot();
-    // this.attach(screenShot, 'image/png');
     takeScreenshot(this);
 });
 
