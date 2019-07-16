@@ -22,7 +22,7 @@ Then('I should see in login form input {string} with {string}', async function(i
     await takeScreenshot(this);
 });
 
-When('I enter in input {string} {string}', async function(inputID: string, value: string) {
+When('I enter in input with id {string} text {string}', async function(inputID: string, value: string) {
     await login.setInputValue(inputID, value);
 });
 

@@ -3,6 +3,7 @@ import { browser, by, element } from 'protractor';
 export class AuthorizationPo {
     viewLoginFormTitle() {
         return element(by.css('.authForm mat-toolbar span')).getText();
+
     }
 
     getInputText(inputID: string) {
@@ -11,7 +12,6 @@ export class AuthorizationPo {
 
     setInputValue(inputID: string, value: string) {
         const elem = element(by.id(inputID));
-
         elem.click();
         return elem.sendKeys(value);
     }
