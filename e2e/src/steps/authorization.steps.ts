@@ -19,6 +19,7 @@ Then('I should see login form title {string}', async (title: string) => {
 
 Then('I should see in login form input {string} with {string}', async (inputID: string, currentValue: string) => {
     expect(await login.getInputText(inputID)).to.contains(currentValue);
+    takeScreenshot(this);
 });
 
 When('I enter in input {string} {string}', async function(inputID: string, value: string) {
@@ -28,4 +29,5 @@ When('I enter in input {string} {string}', async function(inputID: string, value
 
 Then('I get info from LocalStorage by key {string} {string}', async (key: string, value: string) => {
     expect(await login.getLocalStorageInfo(key)).to.equal(value);
+    takeScreenshot(this);
 });
