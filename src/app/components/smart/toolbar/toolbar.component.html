@@ -27,7 +27,7 @@
         </div>
         <div *ngIf="isAuth()" class="clientName">Hello, {{ clientName }}</div>
         <div class="fourToolbar">
-            <button mat-mini-fab (click)="viewAuthorization()">
+            <button  class = "button-authorization" mat-mini-fab (click)="viewAuthorization()">
                 <i class="material-icons log-out" [ngClass]="{ 'log-in': isAuth() }"> account_circle </i>
             </button>
 
